@@ -34,8 +34,9 @@ function App(){
  const next=()=>{if(index<questions.length-1){setIndex(index+1);setSelected(null);setChecked(false)}else setFinished(true)};
  const restart=()=>{setStarted(false);setIndex(0);setSelected(null);setChecked(false);setAnswers([]);setFinished(false)};
  return <main className="app-shell">
-  <header className="topbar"><img src="/src/assets/Bahad11.png" width="600" alt="" /><div><h1>לומדת ביקור בית</h1></div></header>
-  {!started ? <section className="welcome layout-card"><div className="welcome-copy"><span className="pill">הדרכה אינטראקטיבית</span><h2>ברוכה הבאה ללומדת ביקור בית</h2><p>במהלך הלומדה תעברי בין שלבי העבודה המלווים את תהליך הטיפול, תבחרי את הפעולה המתאימה ותעני על שאלות מקצועיות.</p><ul><li>15 שאלות המבוססות על חומר הלומדה</li><li>משוב מיידי והסבר לכל תשובה</li><li>אפשר להתקדם בקצב שלך</li></ul><button className="primary" onClick={()=>setStarted(true)}>מתחילים <span>←</span></button></div><img className="welcome-art" src="/scenes/scene-01.jpg" alt="איור מתוך לומדת ביקור בית" onError={e=>e.currentTarget.style.display='none'}/></section>
+  <header className="topbar"><img className="topbar-logo" src="visit-course\src\assets\Bahad11.png" width="65px" height="65px" alt="" /><div><div className="h1-container"><h1>לומדת ביקור בית</h1></div></div></header>
+  {!started ? <section className="welcome layout-card"><div className="welcome-copy"><h2>ברוכה הבאה ללומדת ביקור בית</h2><p> במהלך הלומדה תעברי בין שלבי העבודה המלווים את תהליך הטיפול, תבחרי את הפעולה המתאימה ותעני על שאלות מקצועיות. קחו את הזמן, חשבו על שלבי הטיפול שלמדתן והפגינו את הידע שלכן.
+בהצלחה!</p><button className="primary" onClick={()=>setStarted(true)}>מתחילים <span>←</span></button></div><img className="welcome-art" src="/scenes/scene-01.jpg" alt="איור מתוך לומדת ביקור בית" onError={e=>e.currentTarget.style.display='none'}/></section>
   : finished ? <section className="result layout-card"><div className="result-icon">✓</div><p className="eyebrow">סיום הלומדה</p><h2>כל הכבוד, סיימת את הלומדה!</h2><p className="score">ענית נכון על <strong>{score}</strong> מתוך <strong>{questions.length}</strong> שאלות</p><div className="result-track"><span style={{width:`${score/questions.length*100}%`}}/></div><p>מומלץ לחזור על שלבים שבהם תרצי לחזק את הידע.</p><button className="primary" onClick={restart}>להתחיל מחדש ↻</button></section>
   : <section className="lesson">
    <div className="progress-row"><span>שאלה {index+1} מתוך {questions.length}</span><span>{Math.round((index+1)/questions.length*100)}%</span></div><div className="progress-track"><span style={{width:`${(index+1)/questions.length*100}%`}}/></div>
@@ -50,3 +51,4 @@ function App(){
 }
 
 createRoot(document.getElementById('root')).render(<App/>);
+    
