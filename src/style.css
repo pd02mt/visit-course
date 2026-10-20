@@ -1,5 +1,23 @@
 @import url('');
 
+@font-face {
+  font-family: "Ploni";
+  src: url("./fonts/ploni-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Ploni";
+  src: url("./fonts/ploni-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: "Ploni", sans-serif;
+}
+
 :root {
     font-family: Arial, "Noto Sans Hebrew", sans-serif;
     color: #423b37;
@@ -16,7 +34,8 @@ body {
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
-    background: radial-gradient(circle at 15% 12%, #fff8f0 0, transparent 28%), #f5e9df
+    background: radial-gradient(circle at 15% 12%, #fff8f0 0, transparent 28%), #f5e9df;
+    overflow-y : hidden;
 }
 
 .app-shell {
@@ -31,15 +50,22 @@ body {
 .topbar {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 0 0 22px;
+    gap: 10px;
 }
 
 .topbar img {
     object-fit: contain;
     position: absolute;
-    left: 25px;
-    top: 5px;
+    margin-top: -3px;
+}
+
+.logo-container {
+    position: relative;
+    background-color: #CFC5DD;
+    width: 65px;
+    height: 65px;
+    border-radius: 100%;
+    margin-bottom: 15px;
 }
 
 .brand-mark {
@@ -64,15 +90,18 @@ body {
 
 .topbar h1 {
     margin-right: 15px;
-    font-size: 32px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: beige;
+    padding-right: 8px;
+    margin-top: 8px;
+    font-size: 20px;
+    color: #8b7e91;
 }
 
 .h1-container{
-    width: 35vh;
-    background-color: #796b92;
-    border-radius: 5px;
+    width: 10vw;
+    height: 5vh;
+    background-color: #CFC5DD;
+    border-radius: 25px;
+    border: 2px solid #CFC5DD;
 }
 
 .top-meta {
@@ -118,7 +147,7 @@ body {
     line-height: 1.2;
     margin: 22px 0 16px;
     max-width: 530px;
-    text-decoration: underline rgb(128, 68, 163);
+    text-decoration: underline #CFC5DD;
     text-underline-offset: 12px;
 
 }
@@ -142,7 +171,7 @@ body {
 
 
 .welcome-art {
-    width: 120%;
+    width: 115%;
     height: 100%;
     min-height: 460px;
     object-fit: cover;
@@ -151,8 +180,8 @@ body {
 
 .primary {
     border: 0;
-    background: #796b92;
-    color: white;
+    background: #CFC5DD;
+    color: #423b37;
     border-radius: 12px;
     padding: 14px 22px;
     font-size: 20px;
@@ -187,14 +216,14 @@ body {
     display: flex;
     justify-content: space-between;
     color: #7b6e67;
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 700;
-    margin-bottom: 9px
+
 }
 
 .progress-track,
 .result-track {
-    height: 7px;
+    height: 10px;
     border-radius: 99px;
     background: #e4d8d0;
     overflow: hidden
@@ -213,8 +242,8 @@ body {
     display: grid;
     grid-template-columns: .9fr 1.1fr;
     gap: 24px;
-    margin-top: 22px;
-    align-items: stretch
+    align-items: stretch;
+    margin-top: 10px;
 }
 
 .scene-panel {
@@ -227,7 +256,7 @@ body {
 }
 
 .scene-panel img {
-    width: 100%;
+    width: 110%;
     height: 100%;
     min-height: 480px;
     position: absolute;
@@ -249,7 +278,7 @@ body {
 }
 
 .scene-caption span {
-    font-size: 12px;
+    font-size: 16px;
     opacity: .8
 }
 
@@ -298,7 +327,7 @@ body {
     border-radius: 12px;
     padding: 13px 14px;
     font-family: inherit;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.5;
     color: #51463f;
     cursor: pointer;
@@ -355,11 +384,13 @@ body {
     padding: 13px 16px;
     border-radius: 12px;
     line-height: 1.6;
-    font-size: 14px
+    font-size: 20px
 }
 
 .feedback p {
-    margin: 5px 0 0
+    margin: 5px 0 0;
+    font-size: 20px;
+    white-space: nowrap;
 }
 
 .feedback.positive {
@@ -376,7 +407,7 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-top: 22px
+    margin-top: 10px
 }
 
 .keyboard-note {

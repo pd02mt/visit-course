@@ -34,19 +34,18 @@ function App(){
  const next=()=>{if(index<questions.length-1){setIndex(index+1);setSelected(null);setChecked(false)}else setFinished(true)};
  const restart=()=>{setStarted(false);setIndex(0);setSelected(null);setChecked(false);setAnswers([]);setFinished(false)};
  return <main className="app-shell">
-  <header className="topbar"><img className="topbar-logo" src="visit-course\src\assets\Bahad11.png" width="65px" height="65px" alt="" /><div><div className="h1-container"><h1>לומדת ביקור בית</h1></div></div></header>
-  {!started ? <section className="welcome layout-card"><div className="welcome-copy"><h2>ברוכה הבאה ללומדת ביקור בית</h2><p> במהלך הלומדה תעברי בין שלבי העבודה המלווים את תהליך הטיפול, תבחרי את הפעולה המתאימה ותעני על שאלות מקצועיות. קחו את הזמן, חשבו על שלבי הטיפול שלמדתן והפגינו את הידע שלכן.
-בהצלחה!</p><button className="primary" onClick={()=>setStarted(true)}>מתחילים <span>←</span></button></div><img className="welcome-art" src="/scenes/scene-01.jpg" alt="איור מתוך לומדת ביקור בית" onError={e=>e.currentTarget.style.display='none'}/></section>
+  <header className="topbar"><div className="logo-container"><img className="topbar-logo" src="visit-course\src\assets\Bahad11.png" width="65px" height="65px" alt="" /></div><div><div className="h1-container"><h1>לומדת ביקור בית</h1></div></div></header>
+  {!started ? <section className="welcome layout-card"><div className="welcome-copy"><h2>ברוכה הבאה ללומדת ביקור בית</h2><p> במהלך הלומדה תעברי בין שלבי העבודה המלווים את תהליך הטיפול, תבחרי את הפעולה המתאימה ותעני על שאלות מקצועיות. קחי את הזמן, חשבי על שלבי הטיפול שלמדת והפגיני את הידע שלך.
+בהצלחה!</p><button className="primary" onClick={()=>setStarted(true)}>מתחילים <span>←</span></button></div><img className="welcome-art" src="/scenes/scene-00.jpg" alt="איור מתוך לומדת ביקור בית" onError={e=>e.currentTarget.style.display='none'}/></section>
   : finished ? <section className="result layout-card"><div className="result-icon">✓</div><p className="eyebrow">סיום הלומדה</p><h2>כל הכבוד, סיימת את הלומדה!</h2><p className="score">ענית נכון על <strong>{score}</strong> מתוך <strong>{questions.length}</strong> שאלות</p><div className="result-track"><span style={{width:`${score/questions.length*100}%`}}/></div><p>מומלץ לחזור על שלבים שבהם תרצי לחזק את הידע.</p><button className="primary" onClick={restart}>להתחיל מחדש ↻</button></section>
   : <section className="lesson">
    <div className="progress-row"><span>שאלה {index+1} מתוך {questions.length}</span><span>{Math.round((index+1)/questions.length*100)}%</span></div><div className="progress-track"><span style={{width:`${(index+1)/questions.length*100}%`}}/></div>
    <div className="lesson-grid"><aside className="scene-panel"><img src={`/scenes/scene-${String(index+1).padStart(2,'0')}.jpg`} alt="איור של שלב הביקור"/><div className="scene-caption"><span>שלב {index+1}</span><strong>{q.stage}</strong></div></aside>
     <article className="question-panel"><div className="stage-tag">{q.stage}</div><h2>{q.context}</h2><p className="choose-hint">בחרי את התשובה הנכונה:</p><div className="options">{q.options.map((opt,i)=><button key={opt} className={`option ${selected===i?'selected':''} ${checked&&i===q.answer?'correct':''} ${checked&&selected===i&&i!==q.answer?'wrong':''}`} onClick={()=>choose(i)} disabled={checked}><span className="option-letter">{['א','ב','ג','ד'][i]}</span><span>{opt}</span>{checked&&i===q.answer&&<span className="answer-mark">✓</span>}</button>)}</div>
     {checked&&<div className={`feedback ${selected===q.answer?'positive':'negative'}`}><strong>{selected===q.answer?'נכון מאוד!':'לא בדיוק — נמשיך ללמוד'}</strong><p>{q.feedback}</p></div>}
-    <div className="actions">{!checked?<button className="primary" disabled={selected===null} onClick={check}>בדיקת תשובה</button>:<button className="primary" onClick={next}>{index===questions.length-1?'לסיום הלומדה':'לשאלה הבאה'} <span>←</span></button>}<span className="keyboard-note">{checked?'התשובה נשמרה במחשב זה':'בחרי תשובה ואז בדקי אותה'}</span></div>
+    <div className="actions">{!checked?<button className="primary" disabled={selected===null} onClick={check}>בדיקת תשובה</button>:<button className="primary" onClick={next}>{index===questions.length-1?'לסיום הלומדה':'לשאלה הבאה'} <span>←</span></button>}<span className="keyboard-note">{checked?'   ':''}</span></div>
    </article></div>
   </section>}
-  <footer><span>לומדת ביקור בית</span><span>התקדמות נשמרת במהלך ההפעלה בלבד</span></footer>
  </main>
 }
 

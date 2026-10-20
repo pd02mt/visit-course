@@ -60,9 +60,6 @@ body {
 
 .topbar h1 {
     font-size: 32px;
-
-
-    
     margin: 2px 0 0
 }
 
@@ -229,7 +226,7 @@ body {
 }
 
 .scene-caption span {
-    font-size: 12px;
+    font-size: 16px;
     opacity: .8
 }
 
